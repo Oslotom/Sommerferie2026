@@ -47,45 +47,45 @@ export const FriendForm: React.FC<FriendFormProps> = ({
       status: AvailabilityStatus.AVAILABLE_WITHOUT_KIDS,
       label: 'Tilgjengelig uten barn',
       icon: '🍻',
-      colorClass: 'bg-emerald-600 border-emerald-500 text-white',
+      colorClass: 'bg-emerald-500 border-emerald-600 text-white',
       accentColor: 'border-emerald-500 ring-emerald-500/30'
     },
     {
       status: AvailabilityStatus.AVAILABLE_WITH_KIDS,
       label: 'Tilgjengelig med barn',
       icon: '👶',
-      colorClass: 'bg-blue-600 border-blue-500 text-white',
+      colorClass: 'bg-blue-500 border-blue-600 text-white',
       accentColor: 'border-blue-500 ring-blue-500/30'
     },
     {
       status: AvailabilityStatus.ON_VACATION,
       label: 'På ferie',
       icon: '☀️',
-      colorClass: 'bg-amber-500 border-amber-400 text-zinc-950',
+      colorClass: 'bg-amber-400 border-amber-500 text-zinc-950',
       accentColor: 'border-amber-400 ring-amber-500/30'
     },
     {
       status: AvailabilityStatus.NOT_AVAILABLE,
       label: 'Ikke tilgjengelig',
       icon: '❌',
-      colorClass: 'bg-zinc-800 border-zinc-700 text-zinc-300',
-      accentColor: 'border-zinc-750 ring-zinc-700/30'
+      colorClass: 'bg-zinc-300 border-zinc-400 text-zinc-800',
+      accentColor: 'border-zinc-400 ring-zinc-400/30'
     },
   ];
 
   return (
-    <div className="space-y-6 pb-20 animate-fade-in text-zinc-100">
+    <div className="space-y-6 pb-20 animate-fade-in text-zinc-800">
       {/* Header Bar */}
-      <div className="flex items-center justify-between border-b border-[#2A2A2A] pb-4">
+      <div className="flex items-center justify-between border-b border-[#DDDDDD] pb-4">
         <button
           type="button"
           onClick={onCancel}
-          className="flex items-center gap-1.5 text-sm font-semibold text-zinc-400 hover:text-zinc-200 transition-colors p-1"
+          className="flex items-center gap-1.5 text-sm font-semibold text-zinc-600 hover:text-zinc-800 transition-colors p-1"
         >
           <ArrowLeft className="w-4 h-4" />
           Tilbake
         </button>
-        <span className="text-sm font-bold text-zinc-350">
+        <span className="text-sm font-bold text-zinc-700">
           {friend ? 'Rediger venn' : 'Legg til ny venn'}
         </span>
         <div className="w-16" /> {/* Spacer to align title */}
@@ -93,9 +93,9 @@ export const FriendForm: React.FC<FriendFormProps> = ({
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Details */}
-        <div className="space-y-4 bg-[#141414] p-4 border border-[#2A2A2A] rounded-2xl">
+        <div className="space-y-4 bg-[#FFFFFF] p-4 border border-[#DDDDDD] rounded-2xl">
           <div>
-            <label htmlFor="friendName" className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1.5">
+            <label htmlFor="friendName" className="block text-xs font-bold text-zinc-600 uppercase tracking-wider mb-1.5">
               Vennens navn <span className="text-red-500">*</span>
             </label>
             <input
@@ -107,12 +107,12 @@ export const FriendForm: React.FC<FriendFormProps> = ({
                 if (e.target.value.trim()) setErrorMsg(null);
               }}
               placeholder="F.eks. Kari Nordmann"
-              className="w-full px-3.5 py-3 bg-[#0F0F0F] border border-[#2A2A2A] rounded-xl focus:border-orange-500 focus:outline-none transition-colors text-sm text-white"
+              className="w-full px-3.5 py-3 bg-[#F5F5F5] border border-[#DDDDDD] rounded-xl focus:border-orange-500 focus:outline-none transition-colors text-sm text-black"
             />
           </div>
 
           <div>
-            <label htmlFor="friendNotes" className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1.5">
+            <label htmlFor="friendNotes" className="block text-xs font-bold text-zinc-600 uppercase tracking-wider mb-1.5">
               Notater (frivillig)
             </label>
             <textarea
@@ -121,26 +121,26 @@ export const FriendForm: React.FC<FriendFormProps> = ({
               onChange={(e) => setNotes(e.target.value)}
               placeholder="F.eks. 'Samboer har barna i partallsuker', 'Jobber kveldsvakter'"
               rows={2}
-              className="w-full px-3.5 py-3 bg-[#0F0F0F] border border-[#2A2A2A] rounded-xl focus:border-orange-500 focus:outline-none transition-colors text-sm text-white resize-none"
+              className="w-full px-3.5 py-3 bg-[#F5F5F5] border border-[#DDDDDD] rounded-xl focus:border-orange-500 focus:outline-none transition-colors text-sm text-black resize-none"
             />
           </div>
 
           {errorMsg && (
-            <div className="p-3 bg-red-950/50 border border-red-900/60 rounded-xl flex items-center gap-2 text-xs text-red-300">
-              <AlertTriangle className="w-4 h-4 shrink-0 text-red-400" />
+            <div className="p-3 bg-red-100 border border-red-300 rounded-xl flex items-center gap-2 text-xs text-red-800">
+              <AlertTriangle className="w-4 h-4 shrink-0 text-red-600" />
               <span>{errorMsg}</span>
             </div>
           )}
         </div>
 
         {/* Brush Tool Palette */}
-        <div className="bg-[#141414] p-4 border border-[#2A2A2A] rounded-2xl space-y-3">
+        <div className="bg-[#FFFFFF] p-4 border border-[#DDDDDD] rounded-2xl space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-zinc-600 uppercase tracking-wider">
               Malepensel (Velg status under)
             </span>
-            <div className="flex items-center gap-1 text-[10px] text-orange-400 font-semibold bg-orange-950/20 px-2 py-0.5 rounded-lg border border-orange-500/20">
-              <Info className="w-3 h-3 text-orange-500" />
+            <div className="flex items-center gap-1 text-[10px] text-orange-700 font-semibold bg-orange-100 px-2 py-0.5 rounded-lg border border-orange-200">
+              <Info className="w-3 h-3 text-orange-600" />
               <span>Sveip over dager for å fargelegge!</span>
             </div>
           </div>
@@ -157,7 +157,7 @@ export const FriendForm: React.FC<FriendFormProps> = ({
                     p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 text-center transition-all cursor-pointer active:scale-97
                     ${isSelected 
                       ? `${opt.colorClass} border-orange-500 ring-4 ${opt.accentColor} shadow-md` 
-                      : 'bg-[#0F0F0F] border-[#2A2A2A] text-zinc-400 hover:border-zinc-700/80 hover:text-zinc-200'
+                      : 'bg-[#F5F5F5] border-[#DDDDDD] text-zinc-600 hover:border-zinc-400 hover:text-zinc-800'
                     }
                   `}
                 >
@@ -168,14 +168,14 @@ export const FriendForm: React.FC<FriendFormProps> = ({
             })}
           </div>
 
-          <p className="text-[10px] text-zinc-550 leading-normal text-center pt-1.5 border-t border-[#2A2A2A]">
+          <p className="text-[10px] text-zinc-500 leading-normal text-center pt-1.5 border-t border-[#DDDDDD]">
             Hold fingeren nede på mobilen eller venstre musetast på PC-en, og dra over de ønskede dagene på kalenderen for å fargelegge raskt! Link til en enkelt dag fjerner/legger til statusen direkte.
           </p>
         </div>
 
         {/* Interactive Month Calendars details */}
         <div>
-          <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2.5 px-1">
+          <h3 className="text-xs font-bold text-zinc-600 uppercase tracking-wider mb-2.5 px-1">
             Fargelegg tilgjengelighet (Juni, Juli, August 2026)
           </h3>
           <AvailabilityEditorCalendar
@@ -186,7 +186,7 @@ export const FriendForm: React.FC<FriendFormProps> = ({
         </div>
 
         {/* Action button triggers */}
-        <div className="pt-4 border-t border-[#2A2A2A] space-y-2">
+        <div className="pt-4 border-t border-[#DDDDDD] space-y-2">
           <button
             type="submit"
             className="w-full py-3.5 px-4 bg-orange-500 hover:bg-orange-600 text-black rounded-xl font-black flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-lg"
@@ -198,27 +198,27 @@ export const FriendForm: React.FC<FriendFormProps> = ({
           <button
             type="button"
             onClick={onCancel}
-            className="w-full py-3 px-4 bg-[#141414] border border-[#2A2A2A] hover:bg-zinc-900 hover:border-zinc-700 text-zinc-300 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full py-3 px-4 bg-[#FFFFFF] border border-[#DDDDDD] hover:bg-zinc-100 hover:border-zinc-300 text-zinc-800 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <X className="w-4 h-4" />
             Avbryt
           </button>
 
           {friend && onDelete && (
-            <div className="pt-4 mt-4 border-t border-red-900/30">
+            <div className="pt-4 mt-4 border-t border-red-300/50">
               {!showDeleteConfirm ? (
                 <button
                   type="button"
                   onClick={() => setShowDeleteConfirm(true)}
-                  className="w-full py-3 px-4 bg-red-950/30 border border-red-900/30 hover:bg-red-950/60 text-red-400 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full py-3 px-4 bg-red-100/50 border border-red-300/50 hover:bg-red-100 text-red-700 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                   Slett {name || 'venn'}
                 </button>
               ) : (
-                <div className="bg-red-950/40 border border-red-900/60 p-4 rounded-xl space-y-3">
-                  <h4 className="text-xs font-bold text-red-300 uppercase tracking-wider">Er du helt sikker?</h4>
-                  <p className="text-xs text-red-400/90 leading-normal">
+                <div className="bg-red-100/60 border border-red-300/80 p-4 rounded-xl space-y-3">
+                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider">Er du helt sikker?</h4>
+                  <p className="text-xs text-red-700/90 leading-normal">
                     Dette vil fjerne <strong>{name}</strong> og all tilhørende tilgjengelighet permanent. Handlingen kan ikke angres.
                   </p>
                   <div className="flex gap-2.5">
@@ -232,7 +232,7 @@ export const FriendForm: React.FC<FriendFormProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowDeleteConfirm(false)}
-                      className="flex-1 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg text-xs font-bold transition-all p-1"
+                      className="flex-1 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 rounded-lg text-xs font-bold transition-all p-1"
                     >
                       Avbryt
                     </button>

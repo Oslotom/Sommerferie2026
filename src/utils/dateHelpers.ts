@@ -52,6 +52,17 @@ export function formatDateNorwegian(dateStr: string): string {
   return `${day}. ${monthNames[monthNum] || mm}`;
 }
 
+// Returns the ISO week number for a date string like "2026-06-16"
+export function getIsoWeekNumber(dateStr: string): number {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  const dayOfWeek = (date.getUTCDay() + 6) % 7; // Monday=0, Sunday=6
+  date.setUTCDate(date.getUTCDate() - dayOfWeek + 3);
+  const firstThursday = new Date(Date.UTC(date.getUTCFullYear(), 0, 4));
+  const diff = date.getTime() - firstThursday.getTime();
+  return 1 + Math.round(diff / (7 * 24 * 60 * 60 * 1000));
+}
+
 // Generates complete list of dates for June, July, and August 2026
 export function getAllSummerDates(): string[] {
   const dates: string[] = [];

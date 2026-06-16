@@ -134,8 +134,8 @@ export const AvailabilityEditorCalendar: React.FC<AvailabilityEditorCalendarProp
   return (
     <div className="space-y-6 select-none">
       {/* Quick Bulk Operations */}
-      <div className="p-3 bg-[#141414] border border-[#2A2A2A] rounded-2xl flex flex-wrap gap-2 items-center justify-between">
-        <span className="text-xs font-semibold text-zinc-450 flex items-center gap-1">
+      <div className="p-3 bg-zinc-100 border border-zinc-200 rounded-2xl flex flex-wrap gap-2 items-center justify-between">
+        <span className="text-xs font-semibold text-zinc-500 flex items-center gap-1">
           <CalendarRange className="w-3.5 h-3.5 text-orange-500" />
           Hurtigvalg:
         </span>
@@ -143,7 +143,7 @@ export const AvailabilityEditorCalendar: React.FC<AvailabilityEditorCalendarProp
           <button
             type="button"
             onClick={() => markAllDays(activeStatusBrush)}
-            className="flex-1 xs:flex-initial text-xs px-2.5 py-1.5 bg-[#0F0F0F] hover:bg-[#1C1C1C] text-zinc-200 rounded-lg border border-[#2A2A2A] transition-colors flex items-center justify-center gap-1"
+            className="flex-1 xs:flex-initial text-xs px-2.5 py-1.5 bg-white hover:bg-zinc-50 text-zinc-700 rounded-lg border border-zinc-200 transition-colors flex items-center justify-center gap-1"
           >
             <Sparkles className="w-3 h-3 text-orange-500" />
             Sett alle til denne statusen
@@ -151,7 +151,7 @@ export const AvailabilityEditorCalendar: React.FC<AvailabilityEditorCalendarProp
           <button
             type="button"
             onClick={clearAllDays}
-            className="text-xs px-2.5 py-1.5 bg-red-950/40 hover:bg-red-950/80 text-red-500 rounded-lg border border-red-900/40 transition-colors flex items-center justify-center gap-1"
+            className="text-xs px-2.5 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg border border-red-200 transition-colors flex items-center justify-center gap-1"
           >
             <Trash2 className="w-3 h-3" />
             Tøm alle
@@ -172,8 +172,8 @@ export const AvailabilityEditorCalendar: React.FC<AvailabilityEditorCalendarProp
           }
 
           return (
-            <div key={m.name} className="p-4 bg-[#141414] border border-[#2A2A2A] rounded-2xl">
-              <h4 className="text-sm font-bold text-zinc-200 mb-3">{m.name}</h4>
+            <div key={m.name} className="p-4 bg-white border border-zinc-200 rounded-2xl">
+              <h4 className="text-sm font-bold text-zinc-800 mb-3">{m.name}</h4>
               
               {/* Short Weekday Labels */}
               <div className="grid grid-cols-7 gap-1 text-center mb-1">
@@ -213,7 +213,7 @@ export const AvailabilityEditorCalendar: React.FC<AvailabilityEditorCalendarProp
                       className={`
                         aspect-square relative flex flex-col items-center justify-center rounded-xl cursor-pointer
                         transition-all duration-150 border active:scale-95 text-xs font-semibold select-none
-                        ${isNone ? 'bg-[#0F0F0F] border-[#2A2A2A] hover:border-zinc-700 text-zinc-400 hover:bg-[#1A1A1A]' : `${bg} border-transparent`}
+                        ${isNone ? 'bg-zinc-100 border-zinc-200 hover:border-zinc-300 text-zinc-500 hover:bg-zinc-200' : `${bg} border-transparent`}
                       `}
                     >
                       <span className="relative z-10">{day}</span>
