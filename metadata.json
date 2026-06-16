@@ -1,0 +1,6 @@
+{
+  "name": "Sommerplan 2026",
+  "description": "En enkel, mobiloptimalisert sommerplanlegger for å holde oversikt over venners tilgjengelighet sommeren 2026 (juni, juli og august).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
